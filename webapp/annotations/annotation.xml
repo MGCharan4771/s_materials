@@ -1,0 +1,110 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZMATERIAL_DATA_SRV/$metadata">
+        <edmx:Include Namespace="ZMATERIAL_DATA_SRV" Alias="Metadata"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local1">
+            <Annotations Target="Metadata.Material_Det">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Mat_No</PropertyPath>
+                        <PropertyPath>Mat_Group</PropertyPath>
+                        <PropertyPath >Mat_Type</PropertyPath>
+                        <PropertyPath>Prod_Hiearchy</PropertyPath>
+                        <PropertyPath>Net_weight</PropertyPath>
+                    </Collection> 
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Mat_No"  />
+                            <PropertyValue Property="Label" String="Material Number"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Mat_Des" />
+                            <PropertyValue Property="Label" String="Material Description"  />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Industry" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Mat_Group" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Mat_Type" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Base_Unit" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Net_weight" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Metadata.Material_Det/Mat_No"  >
+                <Annotation Term="Common.ValueList" >
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="Material_NoSet" />
+                        <PropertyValue Property="Parameters"  >
+                            <Collection >
+                                <Record Type="Common.ValueListParameterOut"  >
+                                    <PropertyValue Property="ValueListProperty" String="MatNo" />
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Mat_No" />
+                                </Record >
+                                <Record Type="Common.ValueListParameterDisplayOnly"  >
+                                    <PropertyValue Property="ValueListProperty"  String="MatDes" />
+                                </Record>
+                            </Collection> 
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Metadata.Material_Det/Mat_Group">
+                <Annotation Term="Common.ValueList" >
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="Material_GroupSet" />
+                        <PropertyValue Property="Parameters"  >
+                            <Collection >
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="MatGrp" />
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Mat_Group"></PropertyValue>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly"  >
+                                    <PropertyValue Property="ValueListProperty"  String="MatGrpDes" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue >
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Metadata.Material_Det/Mat_Type"  >
+                <Annotation Term="Common.ValueList" >
+                    <Record Type="Common.ValueListType"  >
+                        <PropertyValue Property="CollectionPath" String="Material_TypeSet"></PropertyValue>
+                        <PropertyValue Property="Parameters"  >
+                            <Collection >
+                                <Record Type="Common.ValueListParameterOut"  >
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Mat_Type"  ></PropertyValue>
+                                    <PropertyValue Property="ValueListProperty" String="MatType"  ></PropertyValue >
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly"  >
+                                    <PropertyValue Property="ValueListProperty" String="MatTypDes"></PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+         </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,17 @@
+<mvc:View controllerName="smaterials.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:Table="sap.ui.table"
+    xmlns="sap.m" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <smartfilterbar:SmartFilterBar id="idSmartFilterBar" entitySet="Material_DetSet">
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration key="Mat_No" label="Material Number" />
+                    <smartfilterbar:ControlConfiguration key="Prod_Hiearchy" label="Product Hierarchy"></smartfilterbar:ControlConfiguration>
+                </smartfilterbar:controlConfiguration>
+            </smartfilterbar:SmartFilterBar>
+            <smartTable:SmartTable id="_IDGenSmartTable" smartFilterId="idSmartFilterBar" entitySet="Material_DetSet" header="Materials Table" 
+            enableAutoColumnWidth="true" enableAutoBinding="false" ignoredFields="Base_Unit" showFullScreenButton="true">
+            </smartTable:SmartTable>
+        </content>
+    </Page>
+</mvc:View>
